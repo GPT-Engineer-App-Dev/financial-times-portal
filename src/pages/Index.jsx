@@ -1,19 +1,29 @@
-// Update this page (the content is just a fallback if you fail and example)
-// Use chakra-ui
-import { Container, Text, VStack } from "@chakra-ui/react";
-
-// Example of using react-icons
-// import { FaRocket } from "react-icons/fa";
-// <IconButton aria-label="Add" icon={<FaRocket />} size="lg" />; // IconButton would also have to be imported from chakra
+import { Container, Box, Flex, VStack, Text } from "@chakra-ui/react";
+import Navbar from "../components/Navbar";
+import Sidebar from "../components/Sidebar";
 
 const Index = () => {
   return (
-    <Container centerContent maxW="container.md" height="100vh" display="flex" flexDirection="column" justifyContent="center" alignItems="center">
-      <VStack spacing={4}>
-        <Text fontSize="2xl">Your Blank Canvas</Text>
-        <Text>Chat with the agent to start making edits.</Text>
-      </VStack>
-    </Container>
+    <Box>
+      <Navbar />
+      <Container maxW="container.xl" mt={4}>
+        <Flex direction={{ base: "column", md: "row" }}>
+          <Box flex="1" mr={{ base: 0, md: 4 }} mb={{ base: 4, md: 0 }}>
+            <VStack spacing={4} align="stretch">
+              <Box bg="white" p={4} boxShadow="md" borderRadius="md">
+                <Text fontSize="2xl" fontWeight="bold">Main Article</Text>
+                <Text mt={2}>This is the main content area where articles will be displayed.</Text>
+              </Box>
+              <Box bg="white" p={4} boxShadow="md" borderRadius="md">
+                <Text fontSize="2xl" fontWeight="bold">Another Article</Text>
+                <Text mt={2}>This is another article in the main content area.</Text>
+              </Box>
+            </VStack>
+          </Box>
+          <Sidebar />
+        </Flex>
+      </Container>
+    </Box>
   );
 };
 
